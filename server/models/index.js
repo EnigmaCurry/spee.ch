@@ -13,18 +13,19 @@ const User = require('./user');
 const Views = require('./views');
 
 const {
+  host,
   database,
   username,
   password,
 } = require('@config/mysqlConfig');
 
-if (!database || !username || !password) {
-  logger.warn('missing database, user, or password from mysqlConfig');
+if (!host || !database || !username || !password) {
+  logger.warn('missing host, database, user, or password from mysqlConfig');
 }
 
 // set sequelize options
 const sequelize = new Sequelize(database, username, password, {
-  host          : 'localhost',
+  host          : host,
   dialect       : 'mysql',
   dialectOptions: {
     decimalNumbers: true,
