@@ -175,7 +175,7 @@ module.exports = {
           method: 'channel_new',
           params: {
             channel_name: name,
-            amount: publishing.channelClaimBidAmount,
+            amount: publishing.channelClaimBidAmount.toFixed(2),
           },
         })
         .then(response => {
